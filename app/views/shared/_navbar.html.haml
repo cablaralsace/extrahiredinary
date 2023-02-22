@@ -1,0 +1,17 @@
+%nav.navbar.navbar-expand-lg.fixed-top.bg-body-tertiary{:style => "background-color: #0096c7;"}
+  .container-fluid.px-4
+    %a.navbar-brand.text-light.fw-bold{:href => "#"} ExtraHIREdinary
+    %button.navbar-toggler{"aria-controls" => "navbarText", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-bs-target" => "#navbarText", "data-bs-toggle" => "collapse", :type => "button"}
+      %span.navbar-toggler-icon
+    #navbarText.collapse.navbar-collapse
+      %ul.navbar-nav.me-auto.mb-2.mb-lg-0
+        %li.nav-item
+          %a.nav-link.active{"aria-current" => "page", :href => "#"} Home
+        %li.nav-item
+          %a.nav-link{:href => "#"} Features
+        %li.nav-item
+          %a.nav-link{:href => "#"} Pricing
+      -# %span.navbar-text.text-light
+        = link_to "Login to your Account", new_user_session_path
+      -# %button.btn.btn-primary{"aria-pressed" => "false", :autocomplete => "off", "data-toggle" => "button", :type => "button"}
+      -#   Single toggle
