@@ -1,22 +1,3 @@
--# <!DOCTYPE html>
--# <html>
--#   <head>
--#     <title>Extrahiredinary</title>
--#     <meta name="viewport" content="width=device-width,initial-scale=1">
--#     <%= csrf_meta_tags %>
--#     <%= csp_meta_tag %>
-
--#     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
--#     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
--#   </head>
-
--#   <body>
--#     <p class="notice"><%= notice %></p>
--#     <p class="alert"><%= alert %></p>
--#     <%= yield %>
--#   </body>
--# </html>
-
 !!!
 %html
   %head
@@ -29,7 +10,13 @@
     = javascript_include_tag "application", "data-turbo-track": "reload", defer: true
   %body
     = render partial: "shared/navbar"
-    %p.notice= notice
-    %p.alert= alert
-    .container.py-2
-      = yield
+    - if flash.any?
+      .row
+        .col
+          - flash.each do |type, msg|
+            - html_class = "success"
+            - html_class = "danger" if type == "alert"
+            .alert{class: "alert-#{html_class}", role: "alert"}
+              .container
+                = msg.html_safe
+    = yield
