@@ -1,0 +1,2 @@
+class Applicant < Employee
+end
