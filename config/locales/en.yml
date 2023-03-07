@@ -31,3 +31,19 @@
 
 en:
   hello: "Hello world"
+
+
+  employee:
+    education:
+      undergraduate: "Undergraduate"
+      elementary: "Elementary"
+      high_school: "High School"
+      college: "College"
+      masters: "Masters"
+      doctorate: "Doctorate"
+
+    work_experience:
+      less_than_one_year: "Less than 1 year"
+      one_to_two_years: "1 to 2 years"
+      three_to_five_years: "3 to 5 years"
+      five_years_or_more: "5 years or more"

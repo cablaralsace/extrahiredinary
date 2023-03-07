@@ -90,16 +90,14 @@
               required: true,
               label_html: { class: "form-label" },
               input_html: { class: "mb-2 form-control",
-                            type: "integer" }
+                            type: "text" }
 
       .row
         .field
           = form.input :education,
               label: "Highest Educational Attainment",
-              collection: Employee::EDUCATION,
+              collection: Employee::EDUCATION.map{|key| [ I18n.t(".employee.education.#{key}"), key ]},
               required: true,
-              label_method: :to_s,
-              value_method: :to_s,
               label_html: { class: "form-label" },
               input_html: { class: "mb-2 form-control",
                             type: "text" }
@@ -108,10 +106,8 @@
         .field
           = form.input :work_experience,
               label: "Work Experience",
-              collection: Employee::WORK_EXPERIENCE,
+              collection: Employee::WORK_EXPERIENCE.map{|key| [ I18n.t(".employee.work_experience.#{key}"), key ]},
               required: true,
-              label_method: :to_s,
-              value_method: :to_s,
               label_html: { class: "form-label" },
               input_html: { class: "mb-2 form-control",
                             type: "text" }
