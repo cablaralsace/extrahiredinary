@@ -1,0 +1,159 @@
+-# <h2>Sign up Employee</h2>
+
+-# <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+-#   <%= f.error_notification %>
+
+-#   <div class="form-inputs">
+-#     <%= f.input :email,
+-#                 required: true,
+-#                 autofocus: true,
+-#                 input_html: { autocomplete: "email" }%>
+-#     <%= f.input :password,
+-#                 required: true,
+-#                 hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+-#                 input_html: { autocomplete: "new-password" } %>
+-#     <%= f.input :password_confirmation,
+-#                 required: true,
+-#                 input_html: { autocomplete: "new-password" } %>
+-#   </div>
+
+-#   <div class="form-actions">
+-#     <%= f.button :submit, "Sign up" %>
+-#   </div>
+-# <% end %>
+
+-# <%= render "employees/shared/links" %>
+
+.d-flex.justify-content-center.pb-5
+  .container.border.rounded.m-5.col-lg-6
+    %h2.text-center.fw-bold.m-4
+      EMPLOYEE Registration
+
+    = simple_form_for resource,
+        as: resource_name,
+        url: registration_path(resource_name),
+        method: :post,
+        html: { class: "m-5" } do |form|
+
+      -# = render "devise/shared/error_messages", resource: resource
+
+      .row
+        .field
+          = form.input :first_name,
+              label: "First Name",
+              required: true,
+              label_html: { class: "form-label" },
+              input_html: { class: "mb-2 form-control",
+                            type: "text" }
+
+      .row
+        .field.col-lg-6
+          = form.input :middle_name,
+              label: "Middle Name",
+              required: true,
+              label_html: { class: "form-label" },
+              input_html: { class: "mb-2 form-control",
+                            type: "text" }
+
+        .field.col-lg-6
+          = form.input :last_name,
+              label: "Last Name",
+              required: true,
+              label_html: { class: "form-label" },
+              input_html: { class: "mb-2 form-control",
+                            type: "text" }
+      .row
+        .field
+          = form.input :date_of_birth,
+              label: "Date of Birth",
+              required: true,
+              start_year: Date.today.year - 40,
+              end_year: Date.today.year,
+              discard_day: false,
+              order: [:month, :day, :year],
+              label_html: { class: "form-label" },
+              input_html: { class: "mb-2 form-control",
+                            type: "datetime" }
+
+      .row
+        .field.col-lg-7
+          = form.input :email,
+              label: "Email Address",
+              required: true,
+              label_html: { class: "form-label" },
+              input_html: { class: "mb-2 form-control",
+                            type: "email", autocomplete: "email" }
+
+        .field.col-lg-5
+          = form.input :contact_number,
+              label: "Contact Number",
+              required: true,
+              label_html: { class: "form-label" },
+              input_html: { class: "mb-2 form-control",
+                            type: "integer" }
+
+      .row
+        .field
+          = form.input :education,
+              label: "Highest Educational Attainment",
+              collection: Employee::EDUCATION,
+              required: true,
+              label_method: :to_s,
+              value_method: :to_s,
+              label_html: { class: "form-label" },
+              input_html: { class: "mb-2 form-control",
+                            type: "text" }
+
+      .row
+        .field
+          = form.input :work_experience,
+              label: "Work Experience",
+              collection: Employee::WORK_EXPERIENCE,
+              required: true,
+              label_method: :to_s,
+              value_method: :to_s,
+              label_html: { class: "form-label" },
+              input_html: { class: "mb-2 form-control",
+                            type: "text" }
+
+      .row
+        .field
+          = form.input :role,
+              label: "Role",
+              required: true,
+              label_html: { class: "form-label" },
+              input_html: { class: "mb-2 form-control",
+                            type: "text" }
+
+      .row
+        .field
+          = form.input :character_references,
+              label: "Character References",
+              required: false,
+              label_html: { class: "form-label" },
+              input_html: { class: "mb-2 form-control",
+                            type: "text" }
+      .row
+        .field.col-lg-6
+          = form.input :password,
+              label: "Password",
+              required: true,
+              label_html: { class: "form-label" },
+              input_html: { class: "mb-2 form-control",
+                            type: "password", autocomplete: "new-password" },
+              hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+              hint_html: { class: "form-label" }
+
+        .field.col-lg-6
+          = form.input :password_confirmation,
+              label: "Confirm Password",
+              required: true,
+              label_html: { class: "form-label" },
+              input_html: { class: "mb-2 form-control",
+                            type: "password", autocomplete: "new-password" }
+
+      = form.button :submit, "Create Account",
+            class: "btn btn-form btn-dark w-100 mt-2"
+
+      %p.text-left.text-muted.mt-4
+        = render "employees/shared/links"
