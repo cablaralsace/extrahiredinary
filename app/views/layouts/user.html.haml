@@ -9,6 +9,18 @@
     = stylesheet_link_tag "application", "data-turbo-track": "reload"
     = javascript_include_tag "application", "data-turbo-track": "reload", defer: true
   %body
-    %p.notice= notice
-    %p.alert= alert
+    = render partial: "shared/users/navbar"
+    - if flash.any?
+      .row
+        .col
+          - flash.each do |type, msg|
+            - html_class = "success"
+            - html_class = "danger" if type == "alert"
+            .alert{class: "alert-#{html_class}", role: "alert"}
+              .container.d-flex.justify-content-between
+                %div
+                  = msg.html_safe
+                %div
+                  %button.btn-close{"aria-label" => "Close", "data-bs-dismiss" => "alert", :type => "button"}
+
     = yield
