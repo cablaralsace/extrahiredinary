@@ -9,8 +9,6 @@
         method: :post,
         html: { class: "m-5" } do |form|
 
-      -# = render "devise/shared/error_messages", resource: resource
-
       .row
         .field
           = form.input :first_name,
@@ -70,7 +68,7 @@
         .field
           = form.input :education,
               label: "Highest Educational Attainment",
-              collection: Employee::EDUCATION.map{|key| [ I18n.t(".employee.education.#{key}"), key ]},
+              collection: Employee::EDUCATION.map{|key| [ I18n.t("employee.education.#{key}"), key ]},
               required: true,
               label_html: { class: "form-label" },
               input_html: { class: "mb-2 form-control",
@@ -80,7 +78,7 @@
         .field
           = form.input :work_experience,
               label: "Work Experience",
-              collection: Employee::WORK_EXPERIENCE.map{|key| [ I18n.t(".employee.work_experience.#{key}"), key ]},
+              collection: Employee::WORK_EXPERIENCE.map{|key| [ I18n.t("employee.work_experience.#{key}"), key ]},
               required: true,
               label_html: { class: "form-label" },
               input_html: { class: "mb-2 form-control",

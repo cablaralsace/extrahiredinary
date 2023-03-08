@@ -32,7 +32,6 @@
 en:
   hello: "Hello world"
 
-
   employee:
     education:
       undergraduate: "Undergraduate"
