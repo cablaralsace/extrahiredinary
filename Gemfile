@@ -49,10 +49,10 @@ gem "bootsnap", require: false
 gem "haml-rails", "~> 2.0"
 
 # Devise gem [https://github.com/heartcombo/devise]
-gem 'devise'
+gem "devise"
 
 # Simple form [https://github.com/heartcombo/simple_form]
-gem 'simple_form'
+gem "simple_form"
 
 # Use Sass to process CSS
 # gem "sassc-rails"
