@@ -1,6 +1,15 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  devise_for :users
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  devise_scope :user do
+    authenticated do
+      resources :users
+
+      root to: "users/dashboard#index", as: :user_root
+    end
+
+    unauthenticated do
+      root to: "devise/sessions#new"
+    end
+  end
 end
