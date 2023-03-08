@@ -1,0 +1,41 @@
+.d-flex.justify-content-center.pb-5
+  .container.border.rounded.m-5.col-lg-6
+    %h2.text-center.fw-bold.m-4
+      EMPLOYEE Login
+
+    = simple_form_for resource,
+        as: resource_name,
+        url: session_path(resource_name),
+        method: :post,
+        html: { class: "m-5" } do |form|
+
+      .field
+        = form.input :email,
+            label: "Email Address",
+            required: false,
+            label_html: { class: "form-label" },
+            input_html: { class: "mb-2 form-control",
+                          type: "email", autocomplete: "email" }
+
+      .field
+        = form.input :password,
+            label: "Password",
+            required: false,
+            label_html: { class: "form-label" },
+            input_html: { class: "mb-2 form-control",
+                          type: "password", autocomplete: "current-password" }
+
+      - if devise_mapping.rememberable?
+        .field
+          = form.input :remember_me,
+              as: :boolean,
+              label: "Remember me",
+              label_html: { class: "form-check-label" },
+              input_html: { class: "form-check-input",
+                            type: "checkbox", value: "" }
+
+      = form.button :submit, "Login",
+            class: "btn btn-form btn-dark w-100"
+
+      %p.text-left.mt-4
+        = render "employees/shared/links"

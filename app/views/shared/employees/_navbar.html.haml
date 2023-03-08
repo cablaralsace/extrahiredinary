@@ -1,6 +1,6 @@
 %nav.navbar.navbar-light.bg-light.navbar-expand-lg.bg-body-tertiary
   .container
-    - if applicant_signed_in?
+    - if employee_signed_in?
       = link_to "ExtraHIREdinary", root_path, class: "navbar-brand fw-bold text-dark"
 
       %button.navbar-toggler{"aria-controls" => "navbarText", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-bs-target" => "#navbarText", "data-bs-toggle" => "collapse", type: "button"}
@@ -9,19 +9,19 @@
       #navbarText.collapse.navbar-collapse
         %ul.navbar-nav.mb-2.mb-lg-0.mx-auto.justify-content-center
           %li.nav-item
-            = link_to "Applicant Dashboard", authenticated_applicant_root_path, class: "nav-link"
+            = link_to "Employee Dashboard", authenticated_employee_root_path, class: "nav-link"
 
           %li.nav-item
-            = link_to "Edit Applicant Profile", edit_applicant_registration_path, class: "nav-link"
+            = link_to "Edit Profile", edit_employee_registration_path, class: "nav-link"
 
           %li.nav-item
             %a.nav-link{:href => "#"} Get Premium
 
           %div.d-block.d-lg-none.mt-2
-            = link_to "Sign Out", destroy_applicant_session_path, class: "btn btn-dark w-100"
+            = link_to "Sign Out", destroy_employee_session_path, class: "btn btn-dark w-100"
 
         %div.d-none.d-lg-block
-          = link_to "Sign Out", destroy_applicant_session_path, class: "btn btn-dark btn-sm", "data-toggle": "button"
+          = link_to "Sign Out", destroy_employee_session_path, class: "btn btn-dark btn-sm", "data-toggle": "button"
 
     - else
       = render "shared/unauth_navbar"
