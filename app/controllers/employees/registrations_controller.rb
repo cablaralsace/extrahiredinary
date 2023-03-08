@@ -15,6 +15,7 @@ class Employees::RegistrationsController < Devise::RegistrationsController
     super
   end
 
+
   # GET /resource/edit
   # def edit
   #   super
@@ -55,7 +56,8 @@ class Employees::RegistrationsController < Devise::RegistrationsController
         :education,
         :role,
         :character_references,
-        :type
+        :type,
+        :file
       ])
   end
 

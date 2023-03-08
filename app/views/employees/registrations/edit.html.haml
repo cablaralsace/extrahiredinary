@@ -134,6 +134,9 @@
               hint: ( "We need your current password to confirm your changes." ),
               hint_html: { class: "form-label" }
 
+
+      = link_to "View Resume", @employee.file, class: "btn btn-dark w-30 mt-2 mb-4"
+
       = form.button :submit, "Save Changes",
             class: "btn btn-form btn-warning w-100 mt-2"
 

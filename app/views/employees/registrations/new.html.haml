@@ -120,6 +120,15 @@
               input_html: { class: "mb-2 form-control",
                             type: "password", autocomplete: "new-password" }
 
+      .row
+        .field
+          = form.input :file,
+              label: "Upload Resume File",
+              required: true,
+              label_html: { class: "form-label" },
+              input_html: { class: "mb-2 form-control",
+                            type: "file" }
+
       = form.button :submit, "Create Account",
             class: "btn btn-form btn-dark w-100 mt-2"
 
