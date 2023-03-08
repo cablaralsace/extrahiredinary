@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :first_name, :last_name, presence: true
+  validates_format_of :email, with: URI::MailTo::EMAIL_REGEXP
 end

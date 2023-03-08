@@ -20,4 +20,15 @@ class Employee < ApplicationRecord
     "doctorate"
   ].freeze
 
+  validates_format_of :email, with: URI::MailTo::EMAIL_REGEXP
+
+  validates :first_name,
+            :middle_name,
+            :last_name,
+            :date_of_birth,
+            :contact_number,
+            :work_experience,
+            :education,
+            :role,
+            presence: true
 end
