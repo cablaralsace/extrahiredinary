@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: {
-    sessions: 'users/sessions',
-    registrations: 'users/registrations'
+    sessions: "users/sessions",
+    registrations: "users/registrations"
   }
 
   devise_for :employees, controllers: {
-    sessions: 'employees/sessions',
-    registrations: 'employees/registrations'
+    sessions: "employees/sessions",
+    registrations: "employees/registrations"
   }
 
   authenticated :user do

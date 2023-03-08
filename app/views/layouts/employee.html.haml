@@ -1,9 +1,9 @@
 !!!
 %html
   %head
-    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{content: "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %title Extrahiredinary
-    %meta{:content => "width=device-width,initial-scale=1", :name => "viewport"}/
+    %meta{content: "width=device-width,initial-scale=1", name: "viewport"}/
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag "application", "data-turbo-track": "reload"
@@ -21,6 +21,6 @@
                 %div
                   = msg.html_safe
                 %div
-                  %button.btn-close{"aria-label" => "Close", "data-bs-dismiss" => "alert", :type => "button"}
+                  %button.btn-close{"aria-label" => "Close", "data-bs-dismiss" => "alert", type: "button"}
 
     = yield

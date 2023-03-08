@@ -4,7 +4,7 @@
     - if applicant_signed_in?
       = link_to "ExtraHIREdinary", root_path, class: "navbar-brand fw-bold text-dark"
 
-      %button.navbar-toggler{"aria-controls" => "navbarText", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-bs-target" => "#navbarText", "data-bs-toggle" => "collapse", :type => "button"}
+      %button.navbar-toggler{"aria-controls" => "navbarText", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-bs-target" => "#navbarText", "data-bs-toggle" => "collapse", type: "button"}
         %span.navbar-toggler-icon
 
       #navbarText.collapse.navbar-collapse
@@ -26,6 +26,3 @@
 
     - else
       = render "shared/unauth_navbar"
-
-
-

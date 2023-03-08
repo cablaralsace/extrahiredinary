@@ -1,17 +1,17 @@
 = link_to "ExtraHIREdinary", root_path, class: "navbar-brand fw-bold text-dark"
-%button.navbar-toggler{"aria-controls" => "navbarText", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-bs-target" => "#navbarText", "data-bs-toggle" => "collapse", :type => "button"}
+%button.navbar-toggler{"aria-controls" => "navbarText", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-bs-target" => "#navbarText", "data-bs-toggle" => "collapse", type: "button"}
   %span.navbar-toggler-icon
 
 #navbarText.collapse.navbar-collapse
   %ul.navbar-nav.mb-2.mb-lg-0.mx-auto.justify-content-center
     %li.nav-item
-      %a.nav-link.active{"aria-current" => "page", :href => "#"} Home
+      %a.nav-link.active{"aria-current" => "page", href: "#"} Home
 
     %li.nav-item
-      %a.nav-link{:href => "#"} Features
+      %a.nav-link{href: "#"} Features
 
     %li.nav-item
-      %a.nav-link{:href => "#"} Pricing
+      %a.nav-link{href: "#"} Pricing
 
     %div.d-block.d-lg-none.mt-2
       = link_to "Login as User", new_user_session_path, class: "btn btn-dark w-100"
