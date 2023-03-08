@@ -1,15 +1,15 @@
 !!!
 %html
   %head
-    %meta{content: "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %title Extrahiredinary
-    %meta{content: "width=device-width,initial-scale=1", name: "viewport"}
+    %meta{:content => "width=device-width,initial-scale=1", :name => "viewport"}/
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag "application", "data-turbo-track": "reload"
     = javascript_include_tag "application", "data-turbo-track": "reload", defer: true
   %body
-    = render partial: "shared/navbar"
+    = render partial: "shared/applicants/navbar"
     - if flash.any?
       .row
         .col
@@ -21,6 +21,6 @@
                 %div
                   = msg.html_safe
                 %div
-                  %button.btn-close{"aria-label" => "Close", "data-bs-dismiss" => "alert", type: "button"}
+                  %button.btn-close{"aria-label" => "Close", "data-bs-dismiss" => "alert", :type => "button"}
 
     = yield
