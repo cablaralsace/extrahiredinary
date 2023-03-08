@@ -10,9 +10,10 @@ class Employees::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    params[:employee].merge!(type: Applicant.name)
+    super
+  end
 
   # GET /resource/edit
   # def edit
@@ -53,7 +54,8 @@ class Employees::RegistrationsController < Devise::RegistrationsController
         :work_experience,
         :education,
         :role,
-        :character_references
+        :character_references,
+        :type
       ])
   end
 
