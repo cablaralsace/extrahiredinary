@@ -1,2 +1,39 @@
 %h1
   Users dashboard
+
+.container
+  %table.table.table-sm.table-striped.table-bordered.table-hover.table-responsive
+    %thead
+      %tr
+        %th First Name
+        -# %th Middle Name
+        -# %th Last Name
+        -# %th Date of Birth
+        -# %th Contact Number
+        %th Work Experience
+        %th Education
+        %th Role
+        -# %th Character References
+        %th Status
+    %tbody
+      - @employees.each do |employee|
+        -# - if employee.user == current_user
+        %tr
+          %td
+            = link_to employee.first_name, employee_path(employee.id)
+          -# %td
+            = employee.middle_name
+          -# %td
+            = employee.last_name
+          -# %td
+            = employee.date_of_birth
+          -# %td
+            = employee.contact_number
+          %td
+            = employee.work_experience
+          %td
+            = employee.education
+          %td
+            = employee.role
+          -# %td
+            = employee.character_references
