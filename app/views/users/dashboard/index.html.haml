@@ -1,2 +1,17 @@
 %h1
   Users dashboard
+.container
+  %table.table.table-bordered.table-hover
+    %thead.table-dark
+      %tr
+        %th.text-nowrap First Name
+        %th.text-nowrap Status
+
+    %tbody
+      - @employees.each do |employee|
+        -# - if employee.user == current_user
+        %tr
+          %td.text-nowrap
+            = link_to employee.first_name, employee_path(employee.id)
+          %td
+            = employee.status
