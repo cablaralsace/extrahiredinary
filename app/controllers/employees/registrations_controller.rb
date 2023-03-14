@@ -12,6 +12,8 @@ class Employees::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     params[:employee].merge!(type: Applicant.name)
+    EmployeeMailer.with(employee: @current_employee).application_status.deliver_later
+
     super
   end
 
