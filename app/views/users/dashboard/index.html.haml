@@ -6,8 +6,11 @@
     %thead.table-dark
       %tr
         %th.text-nowrap First Name
+        %th.text-nowrap Status
     %tbody
       - @employees.each do |employee|
         %tr
           %td.text-nowrap
             = link_to employee.first_name, employee_path(employee.id)
+          %td.text-nowrap
+            = employee.employment_events.last&.status
