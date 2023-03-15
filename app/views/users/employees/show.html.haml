@@ -1,0 +1,42 @@
+.container
+  %h1
+    Employee
+    = @employee.id
+
+
+  %dl.row
+    %dt.col-sm-3 Full Name
+    %dd.col-sm-9
+      = @employee.full_name
+
+    %dt.col-sm-3 Email
+    %dd.col-sm-9
+      = @employee.email
+
+    %dt.col-sm-3 Employment Status
+    %dd.col-sm-9
+      = t("employment_event.status.#{@employee.employment_events.last.status}")
+
+    %dt.col-sm-3 Date of Birth
+    %dd.col-sm-9
+      = @employee.date_of_birth.strftime("%B %e %Y")
+
+    %dt.col-sm-3 Contact Number
+    %dd.col-sm-9
+      = @employee.contact_number
+
+    %dt.col-sm-3 Highest Educational Attainment
+    %dd.col-sm-9
+      = t("employee.education.#{@employee.education}")
+
+    %dt.col-sm-3 Work Experience
+    %dd.col-sm-9
+      = t("employee.work_experience.#{@employee.work_experience}")
+
+    %dt.col-sm-3 Role
+    %dd.col-sm-9
+      = @employee.role
+
+    %dt.col-sm-3 Character References
+    %dd.col-sm-9
+      = @employee.character_references

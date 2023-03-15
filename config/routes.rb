@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   authenticated :user do
     resources :users
+    resources :employees, controller: "users/employees"
 
     root to: "users/dashboard#index", as: :authenticated_user_root
   end

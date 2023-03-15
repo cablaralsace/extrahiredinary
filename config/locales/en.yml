@@ -46,3 +46,14 @@ en:
       one_to_two_years: "1 to 2 years"
       three_to_five_years: "3 to 5 years"
       five_years_or_more: "5 years or more"
+
+  employment_event:
+    status:
+      received: "Received"
+      in_review: "In Review"
+      interview_scheduled: "Interview Scheduled"
+      offer_made: "Offer Made"
+      hired: "Hired"
+      rejected: "Rejected"
+      cancelled: "Cancelled"
+      ended: "Ended"

@@ -13,4 +13,4 @@
           %td.text-nowrap
             = link_to employee.first_name, employee_path(employee.id)
           %td.text-nowrap
-            = employee.employment_events.last&.status
+            = t("employment_event.status.#{employee.employment_events.last.status}")

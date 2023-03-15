@@ -11,7 +11,7 @@ class EmploymentEvent < ApplicationRecord
     :rejected,
     :cancelled,
     :ended
-  ]
+  ].freeze
 
   STATUSES_ENUM = STATUSES.each_with_object({}){ |key, hash| hash[key] = key.to_s }
 
