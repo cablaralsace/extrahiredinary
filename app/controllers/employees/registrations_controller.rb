@@ -74,7 +74,8 @@ class Employees::RegistrationsController < Devise::RegistrationsController
         :work_experience,
         :education,
         :role,
-        :character_references
+        :character_references,
+        :file
       ])
   end
 
