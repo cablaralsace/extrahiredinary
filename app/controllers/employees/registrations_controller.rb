@@ -42,7 +42,7 @@ class Employees::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  # protected
+  protected
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
@@ -76,7 +76,8 @@ class Employees::RegistrationsController < Devise::RegistrationsController
         :work_experience,
         :education,
         :role,
-        :character_references
+        :character_references,
+        :file
       ])
   end
 

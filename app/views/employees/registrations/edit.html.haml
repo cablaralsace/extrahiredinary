@@ -104,6 +104,16 @@
               label_html: { class: "form-label" },
               input_html: { class: "mb-2 form-control",
                             type: "text" }
+
+      .row
+        .field
+          = form.input :file,
+              label: "Upload Resume File",
+              required: true,
+              label_html: { class: "form-label" },
+              input_html: { class: "mb-2 form-control",
+                            type: "file" }
+
       .row
         .field.col-lg-6
           = form.input :password,
@@ -134,8 +144,8 @@
               hint: ( "We need your current password to confirm your changes." ),
               hint_html: { class: "form-label" }
 
-
-      = link_to "View Resume", @employee.file, class: "btn btn-dark w-30 mt-2 mb-4"
+      - if resource.file.present?
+        = link_to "View Resume", resource.file, class: "btn btn-dark w-30 mt-2 mb-4"
 
       = form.button :submit, "Save Changes",
             class: "btn btn-form btn-warning w-100 mt-2"
