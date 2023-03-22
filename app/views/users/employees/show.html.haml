@@ -45,7 +45,7 @@
     %dd.col-sm-9
       -# = EmploymentEvent::STATUSES
       - EmploymentEvent::STATUSES.each do |status|
-        = link_to employee_update_status_path(@employee, status: status), method: :patch do
+        = link_to employee_update_status_path(@employee, status: status), data: { 'turbo-method' => :put } do
           = status
 
   = link_to "Back to Dashboard", authenticated_user_root_path
