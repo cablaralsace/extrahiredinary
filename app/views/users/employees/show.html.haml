@@ -3,49 +3,101 @@
     Employee
     = @employee.id
 
+  %hr
+
   %dl.row
     %dt.col-sm-3 Full Name
     %dd.col-sm-9
       = @employee.full_name
 
+    %hr
+
     %dt.col-sm-3 Email
     %dd.col-sm-9
       = @employee.email
+
+    %hr
 
     %dt.col-sm-3 Employment Status
     %dd.col-sm-9
       = t("employment_event.status.#{@employee.employment_events.last.status}")
 
+    %hr
+
     %dt.col-sm-3 Date of Birth
     %dd.col-sm-9
-      = @employee.date_of_birth.strftime("%B %e %Y")
+      = @employee.date_of_birth.strftime("%B %e, %Y")
+
+    %hr
 
     %dt.col-sm-3 Contact Number
     %dd.col-sm-9
       = @employee.contact_number
 
+    %hr
+
     %dt.col-sm-3 Highest Educational Attainment
     %dd.col-sm-9
       = t("employee.education.#{@employee.education}")
+
+    %hr
 
     %dt.col-sm-3 Work Experience
     %dd.col-sm-9
       = t("employee.work_experience.#{@employee.work_experience}")
 
+    %hr
+
     %dt.col-sm-3 Role
     %dd.col-sm-9
       = @employee.role
+
+    %hr
 
     %dt.col-sm-3 Character References
     %dd.col-sm-9
       = @employee.character_references
 
+    %hr
+
   %dl.row
     %dt.col-sm-3 Update Status
     %dd.col-sm-9
-      -# = EmploymentEvent::STATUSES
       - EmploymentEvent::STATUSES.each do |status|
-        = link_to employee_update_status_path(@employee, status: status), data: { 'turbo-method' => :put } do
-          = status
+        = link_to employee_update_status_path(@employee, status: status), class: " btn btn-outline-primary btn-sm m-1", data: { 'turbo-method' => :put } do
+          = t("employment_event.status.#{status}")
+
+  %hr
+
+  %dl.row
+    %table.table.table-bordered.table-hover
+      %thead.table-dark
+        %tr
+          %th.text-nowrap Status
+
+          %th.text-nowrap Notes
+
+          %th.text-nowrap User
+
+          %th.text-nowrap Created At
+
+      %tbody
+        - @employee.employment_events.order(created_at: :desc).each do |employment_event|
+          %tr
+            %td.text-nowrap
+              = employment_event.status_translation
+
+            %td.text-nowrap
+              = employment_event.notes
+
+            %td.text-nowrap
+              - if employment_event.user.present?
+                = employment_event.user.email
+
+              - else
+                Employee-invoked Action
+
+            %td.text-nowrap
+              = employment_event.created_at.strftime("%B %e %Y at %I:%M:%S %p")
 
   = link_to "Back to Dashboard", authenticated_user_root_path
