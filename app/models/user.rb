@@ -8,4 +8,8 @@ class User < ApplicationRecord
 
   validates :first_name, :last_name, presence: true
   validates_format_of :email, with: URI::MailTo::EMAIL_REGEXP
+
+  def full_name
+    [first_name, last_name].join(' ')
+  end
 end
