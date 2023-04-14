@@ -15,6 +15,7 @@ Rails.application.routes.draw do
       put :update_status
     end
 
+    get '/profile', to: 'users/profile#show'
     root to: "users/dashboard#index", as: :authenticated_user_root
   end
 
