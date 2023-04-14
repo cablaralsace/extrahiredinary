@@ -1,103 +1,123 @@
-.container
-  %h1
-    Employee
-    = @employee.id
+.container.my-3
+  .main-body
+    .row
+      .col-lg-4
 
-  %hr
+        / --------- Employee Information --------- /
+        .card.my-2
+          .card-body
+            .d-flex.flex-column.align-items-center.text-center
+              %img.rounded-circle.p-1.bg-primary{:alt => "Admin", :src => "https://bootdey.com/img/Content/avatar/avatar3.png", :width => "110"}/
 
-  %dl.row
-    %dt.col-sm-3 Full Name
-    %dd.col-sm-9
-      = @employee.full_name
+              .mt-3
+                %h5
+                  = @employee.first_name + ' ' + @employee.last_name
 
-    %hr
+                %br
 
-    %dt.col-sm-3 Email
-    %dd.col-sm-9
-      = @employee.email
+                %p.mb-1.fw-bold
+                  Position Applied:
 
-    %hr
+                  %span.inline.fw-normal
+                    = @employee.role
 
-    %dt.col-sm-3 Employment Status
-    %dd.col-sm-9
-      = t("employment_event.status.#{@employee.employment_events.last.status}")
+                %p.mb-1.fw-bold
+                  Employment Status:
 
-    %hr
+                  %span.inline.fw-normal
+                    = t("employment_event.status.#{@employee.employment_events.last.status}")
 
-    %dt.col-sm-3 Date of Birth
-    %dd.col-sm-9
-      = @employee.date_of_birth.strftime("%B %e, %Y")
+            %hr.my-4
 
-    %hr
+            %ul.list-group.list-group-flush
+              %li.list-group-item.d-flex.justify-content-between.align-items-center.flex-wrap
+                %h6.mb-0
+                  Date of Birth:
 
-    %dt.col-sm-3 Contact Number
-    %dd.col-sm-9
-      = @employee.contact_number
+                %span.text-secondary
+                  = @employee.date_of_birth.strftime("%B %e, %Y")
 
-    %hr
+              %li.list-group-item.d-flex.justify-content-between.align-items-center.flex-wrap
+                %h6.mb-0
+                  Email Address:
 
-    %dt.col-sm-3 Highest Educational Attainment
-    %dd.col-sm-9
-      = t("employee.education.#{@employee.education}")
+                %span.text-secondary
+                  = @employee.email
 
-    %hr
+              %li.list-group-item.d-flex.justify-content-between.align-items-center.flex-wrap
+                %h6.mb-0
+                  Contact Number:
 
-    %dt.col-sm-3 Work Experience
-    %dd.col-sm-9
-      = t("employee.work_experience.#{@employee.work_experience}")
+                %span.text-secondary
+                  = @employee.contact_number
 
-    %hr
+              %li.list-group-item.d-flex.justify-content-between.align-items-center.flex-wrap
+                %h6.mb-0
+                  Highest Education:
 
-    %dt.col-sm-3 Role
-    %dd.col-sm-9
-      = @employee.role
+                %span.text-secondary
+                  = t("employee.education.#{@employee.education}")
 
-    %hr
+              %li.list-group-item.d-flex.justify-content-between.align-items-center.flex-wrap
+                %h6.mb-0
+                  Years of Work Experience:
 
-    %dt.col-sm-3 Character References
-    %dd.col-sm-9
-      = @employee.character_references
+                %span.text-secondary
+                  = t("employee.work_experience.#{@employee.work_experience}")
 
-    %hr
+              %li.list-group-item.d-flex.justify-content-between.align-items-center.flex-wrap
+                %h6.mb-0
+                  Character References:
 
-  %dl.row
-    %dt.col-sm-3 Update Status
-    %dd.col-sm-9
-      - EmploymentEvent::STATUSES.each do |status|
-        = link_to employee_update_status_path(@employee, status: status), class: " btn btn-outline-primary btn-sm m-1", data: { 'turbo-method' => :put } do
-          = t("employment_event.status.#{status}")
+                %span.text-secondary
+                  = @employee.character_references
 
-  %hr
+        / --------- Update Status --------- /
+        .card.my-2
+          .card-body
+            %h5.d-flex.align-items-center.mb-3
+              Update Status:
 
-  %dl.row
-    %table.table.table-bordered.table-hover
-      %thead.table-dark
-        %tr
-          %th.text-nowrap Status
+            - EmploymentEvent::STATUSES.each do |status|
+              = link_to employee_update_status_path(@employee, status: status), class: "btn btn-outline-primary btn-sm m-1", data: { 'turbo-method' => :put } do
+                = t("employment_event.status.#{status}")
 
-          %th.text-nowrap Notes
+      / --------- Employment History --------- /
+      .col-lg-8
+        .card.my-2.bg-dark
+          .card-body
+            %h5.d-flex.justify-content-between.align-items-center.text-white.mb-3
+              Employment History
+              = link_to "Back to Dashboard", authenticated_user_root_path, class: "btn btn-light btn-sm m-1"
 
-          %th.text-nowrap User
+            - @employee.employment_events.order(created_at: :desc).each do |employment_event|
+              .card.my-2
+                .card-body
+                  %dl.row
+                    %dt.col-sm-3
+                      Status:
 
-          %th.text-nowrap Created At
+                    %dd.col-sm-9
+                      = employment_event.status_translation
 
-      %tbody
-        - @employee.employment_events.order(created_at: :desc).each do |employment_event|
-          %tr
-            %td.text-nowrap
-              = employment_event.status_translation
+                    %dt.col-sm-3
+                      Notes:
 
-            %td.text-nowrap
-              = employment_event.notes
+                    %dd.col-sm-9
+                      = employment_event.notes
 
-            %td.text-nowrap
-              - if employment_event.user.present?
-                = employment_event.user.email
+                    %dt.col-sm-3
+                      Created By:
 
-              - else
-                Employee-invoked Action
+                    %dd.col-sm-9
+                      - if employment_event.user.present?
+                        = employment_event.user.email
 
-            %td.text-nowrap
-              = employment_event.created_at.strftime("%B %e %Y at %I:%M:%S %p")
+                      - else
+                        Employee-invoked Action
 
-  = link_to "Back to Dashboard", authenticated_user_root_path
+                    %dt.col-sm-3
+                      Created At:
+
+                    %dd.col-sm-9
+                      = employment_event.created_at.strftime("%B %e %Y at %I:%M:%S %p")
