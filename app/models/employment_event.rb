@@ -20,5 +20,4 @@ class EmploymentEvent < ApplicationRecord
   def status_translation
     I18n.t("employment_event.status.#{status}")
   end
-
 end
