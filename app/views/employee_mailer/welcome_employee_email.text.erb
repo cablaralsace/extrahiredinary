@@ -1,0 +1,41 @@
+%h3
+  New Applicant Information
+%dl
+  %dt Email Address:
+  %dd
+    = @employee[:email]
+  %br/
+
+  %dt Full Name:
+  %dd
+    = @employee[:full_name]
+  %br/
+
+  %dt Date of Birth
+  %dd
+    = @employee[:date_of_birth]
+  %br/
+
+  %dt Contact Number
+  %dd
+    = @employee[:contact_number]
+  %br/
+
+  %dt Highest Educational Attainment:
+  %dd
+    = @employee[:education]
+  %br/
+
+  %dt Work Experience
+  %dd
+    = @employee[:work_experience]
+  %br/
+
+  %dt Position Applied:
+  %dd
+    = @employee[:role]
+  %br/
+
+  %dt Character References:
+  %dd
+    = @employee[:character_references]
