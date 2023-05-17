@@ -84,3 +84,6 @@ group :test do
 end
 
 gem "sidekiq", "~> 7.1"
+
+# Letter Opener [https://github.com/ryanb/letter_opener]
+gem "letter_opener", group: :development
