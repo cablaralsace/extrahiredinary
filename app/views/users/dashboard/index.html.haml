@@ -35,29 +35,22 @@
               = link_to "View Details", employee_path(employee.id), class: "btn btn-dark btn-sm m-1"
 
             %td
-              -# - if employee.file.present?
-                = link_to "View Resume", employee.file, class: "btn btn-dark btn-sm m-1 {data-bs-target:#exampleModal data-bs-toggle:modal"
-
-              -# %button.btn.btn-primary{"data-bs-toggle": "modal", "data-bs-target": "#pdfModal"} Open PDF Modal
-
-
               / Button trigger modal
-              %button.btn.btn-primary{"data-bs-target" => "#exampleModal", "data-bs-toggle" => "modal", :type => "button"}
+              %button.btn.btn-primary.btn-sm.m-1{"data-bs-target" => "#exampleModal", "data-bs-toggle" => "modal", type: "button"}
                 View Resume
               / Modal
-              #exampleModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "exampleModalLabel", :tabindex => "-1"}
-                .modal-dialog.modal-dialog-centered.modal-dialog-scrollable
+              #exampleModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "exampleModalLabel", tabindex: "-1"}
+                .modal-dialog.modal-dialog-centered.modal-dialog-scrollable.modal-fullscreen
                   .modal-content
                     .modal-header
                       %h5#exampleModalLabel.modal-title
-                        = employee.full_name
+                        RESUME
 
-                      %button.btn-close{"aria-label" => "Close", "data-bs-dismiss" => "modal", :type => "button"}
+                      %button.btn-close{"aria-label" => "Close", "data-bs-dismiss" => "modal", type: "button"}
 
                     .modal-body
-                      -# %object.embed-responsive-item{:data => "#{@pdf_url}", :type => "application/pdf"}
-                      = render "users/dashboard/pdf_modal"
-                    .modal-footer
-                      %button.btn.btn-secondary{"data-bs-dismiss" => "modal", :type => "button"} Close
-                      -# %button.btn.btn-primary{:type => "button"} Save changes
+                      %object{ data: url_for(employee.file), height: "600px", type: "application/pdf", width: "100%" }
 
+                    .modal-footer
+                      %button.btn.btn-secondary{ "data-bs-dismiss" => "modal", :type => "button" } Close
+                      -# %button.btn.btn-primary{:type => "button"} Save changes

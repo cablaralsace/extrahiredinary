@@ -5,6 +5,5 @@ class Users::DashboardController < Users::BaseController
 
   def show
     @employee = Employee.find(params[:id])
-    @pdf_url = url_for(@employee.file.pdf)
   end
 end
