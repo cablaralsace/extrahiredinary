@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     end
 
     get '/profile', to: 'users/profile#show'
+    get "/hired_employees", to: "users/dashboard#hired_employees"
     root to: "users/dashboard#index", as: :authenticated_user_root
   end
 
