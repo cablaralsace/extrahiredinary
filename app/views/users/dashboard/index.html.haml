@@ -3,11 +3,18 @@
     Welcome to your Dashboard!
 
   %p
-    See all employees and current statuses below.
+    See applicants and employees with their current statuses below.
 
-  = link_to "View Hired Employees", hired_employees_path, class: "btn btn-dark btn-sm m-1", sort: "hired_employees"
+  .dropdown.text-end
+    %button#dropdownMenuButton.btn.btn-dark.dropdown-toggle{"data-bs-toggle" => "dropdown", type: "button"}
+      More Actions
+    %ul.dropdown-menu.text-end{"aria-labelledby" => "dropdownMenuButton"}
+      %li
+        = link_to "View All Applicants", authenticated_user_root_path, class: "text-decoration-none text-dark mx-3"
+      %li
+        = link_to "View Employees", hired_employees_path, class: "text-decoration-none text-dark mx-3", sort: "hired_employees"
 
-  .table-responsive.my-5
+  .table-responsive.my-3
     %table.table.table-hover
       %thead.table-dark
         %tr
@@ -17,9 +24,9 @@
 
           %th{ scope: "col" } Status
 
-          %th{ scope: "col" } Details
+          %th{ scope: "col" } Resume
 
-          %th{ scope: "col" } View Resume
+          %th{ scope: "col" } Details
 
       %tbody
         - @employees.each do |employee|
@@ -34,18 +41,15 @@
               = t("employment_event.status.#{employee.employment_events.last.status}")
 
             %td
-              = link_to "View Details", employee_path(employee.id), class: "btn btn-dark btn-sm m-1"
-
-            %td
               / Button trigger modal
-              %button.btn.btn-primary.btn-sm.m-1{"data-bs-target" => "#exampleModal", "data-bs-toggle" => "modal", type: "button"}
-                View Resume
+              %button.btn.btn-primary.btn-sm.m-1{"data-bs-target" => "#file-modal-#{employee.id}", "data-bs-toggle" => "modal", type: "button"}
+                View Resume File
               / Modal
-              #exampleModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "exampleModalLabel", tabindex: "-1"}
+              .modal.fade{id: "file-modal-#{employee.id}", "aria-hidden" => "true", tabindex: "-1"}
                 .modal-dialog.modal-dialog-centered.modal-dialog-scrollable.modal-fullscreen
                   .modal-content
                     .modal-header
-                      %h5#exampleModalLabel.modal-title
+                      %h5.modal-title
                         RESUME
 
                       %button.btn-close{"aria-label" => "Close", "data-bs-dismiss" => "modal", type: "button"}
@@ -55,4 +59,6 @@
 
                     .modal-footer
                       %button.btn.btn-secondary{ "data-bs-dismiss" => "modal", :type => "button" } Close
-                      -# %button.btn.btn-primary{:type => "button"} Save changes
+
+            %td
+              = link_to "View Full Profile", employee_path(employee.id), class: "btn btn-dark btn-sm m-1"
