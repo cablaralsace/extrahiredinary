@@ -43,8 +43,12 @@
 
             %td
               / Button trigger modal
-              %button.btn.btn-primary.btn-sm.m-1{"data-bs-target" => "#file-modal-#{employee.id}", "data-bs-toggle" => "modal", type: "button"}
+              = button_tag( type: "button",
+                            class: "btn btn-primary btn-sm m-1",
+                            "data-bs-target": "#file-modal-#{employee.id}",
+                            "data-bs-toggle": "modal") do
                 View Resume File
+
               / Modal
               .modal.fade{id: "file-modal-#{employee.id}", "aria-hidden" => "true", tabindex: "-1"}
                 .modal-dialog.modal-dialog-centered.modal-dialog-scrollable.modal-fullscreen
@@ -62,4 +66,5 @@
                       %button.btn.btn-secondary{ "data-bs-dismiss" => "modal", :type => "button" } Close
 
             %td
-              = link_to "View Full Profile", employee_path(employee.id), class: "btn btn-dark btn-sm m-1"
+              = button_tag(type: "button", class: "btn btn-dark btn-sm m-1", "data-toggle": "button") do
+                - link_to "View Full Profile", employee_path(employee.id), style: "color: white; text-decoration: none"
