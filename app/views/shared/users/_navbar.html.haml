@@ -22,10 +22,12 @@
             %a.nav-link{:href => "#"} Support
 
           %div.d-block.d-lg-none.mt-2
-            = link_to "Sign Out", destroy_user_session_path, class: "btn btn-dark w-100"
+            = button_tag(type: "button", class: "btn btn-dark w-100", "data-toggle": "button") do
+              - link_to "Sign Out", destroy_user_session_path, style: "color: white; text-decoration: none"
 
         %div.d-none.d-lg-block
-          = link_to "Sign Out", destroy_user_session_path, class: "btn btn-dark btn-sm", "data-toggle": "button"
+          = button_tag(type: "button", class: "btn btn-dark btn-sm", "data-toggle": "button") do
+            - link_to "Sign Out", destroy_user_session_path, style: "color: white; text-decoration: none"
 
     - else
       = render "shared/unauth_navbar"

@@ -17,5 +17,8 @@
       = link_to "Login as User", new_user_session_path, class: "btn btn-dark w-100"
 
   %div.d-none.d-lg-block
-    = link_to "Login as User", new_user_session_path, class: "btn btn-dark btn-sm", "data-toggle": "button"
-    = link_to "Login as Employee", new_employee_session_path, class: "btn btn-dark btn-sm", "data-toggle": "button"
+    = button_tag(type: "button", class: "btn btn-dark btn-sm m-1", "data-toggle": "button") do
+      - link_to "User Login", new_user_session_path, style: "color: white; text-decoration: none"
+
+    = button_tag(type: "button", class: "btn btn-dark btn-sm m-1", "data-toggle": "button") do
+      - link_to "Employee Login", new_employee_session_path, style: "color: white; text-decoration: none"
