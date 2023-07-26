@@ -11,9 +11,13 @@ class EmploymentEvent < ApplicationRecord
     :rejected,
     :cancelled,
     :ended
-  ]
+  ].freeze
 
   STATUSES_ENUM = STATUSES.each_with_object({}){ |key, hash| hash[key] = key.to_s }
 
   enum :status, STATUSES_ENUM, default: :received
+
+  def status_translation
+    I18n.t("employment_event.status.#{status}")
+  end
 end

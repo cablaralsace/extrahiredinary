@@ -11,7 +11,11 @@ Rails.application.routes.draw do
 
   authenticated :user do
     resources :users
+    resources :employees, controller: "users/employees" do
+      put :update_status
+    end
 
+    get '/profile', to: 'users/profile#show'
     root to: "users/dashboard#index", as: :authenticated_user_root
   end
 

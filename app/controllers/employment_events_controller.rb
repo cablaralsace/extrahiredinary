@@ -5,6 +5,6 @@ class EmploymentEventController < ApplicationController
   private
 
   def employment_event_params
-    params.require(:employment_event).permit(:user_id, :employee_id)
+    params.require(:employment_event).permit(:user_id, :employee_id, :status)
   end
 end

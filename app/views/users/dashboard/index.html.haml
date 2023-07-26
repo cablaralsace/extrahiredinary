@@ -1,16 +1,34 @@
 .container
-  %h1
-    Users dashboard
+  %h1.mt-5
+    Welcome to your Dashboard!
 
-  %table.table.table-bordered.table-hover
-    %thead.table-dark
-      %tr
-        %th.text-nowrap First Name
-        %th.text-nowrap Status
-    %tbody
-      - @employees.each do |employee|
+  %p
+    See all employees and current statuses below.
+
+  .table-responsive.my-5
+    %table.table.table-hover
+      %thead.table-dark
         %tr
-          %td.text-nowrap
-            = link_to employee.first_name, employee_path(employee.id)
-          %td.text-nowrap
-            = employee.employment_events.last&.status
+          %th{ scope: "col" } Full Name
+
+          %th{ scope: "col" } Email
+
+          %th{ scope: "col" } Status
+
+          %th{ scope: "col" } Details
+
+      %tbody
+        - @employees.each do |employee|
+          %tr
+            %td
+              = employee.full_name
+
+            %td
+              = employee.email
+
+            %td
+              = t("employment_event.status.#{employee.employment_events.last.status}")
+
+            %td
+              = link_to "View Details", employee_path(employee.id), class: "btn btn-dark btn-sm m-1"
+
