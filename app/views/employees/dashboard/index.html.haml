@@ -1,3 +1,131 @@
-%h1
-  Employees Dashboard
+.container.my-3
+  .main-body
+    .row
+      .col-lg-4
 
+        / --------- Employee Information --------- /
+        .card.my-2
+          .card-body
+            .d-flex.flex-column.align-items-center.text-center
+              %img.rounded-circle.p-1.bg-primary{:alt => "Admin", :src => "https://bootdey.com/img/Content/avatar/avatar3.png", :width => "110"}/
+
+              .mt-3
+                %h5
+                  = @employee.first_name + ' ' + @employee.last_name
+
+                %br
+
+                %p.mb-1.fw-bold
+                  Employee ID:
+
+                  %span.inline.fw-normal
+                    = @employee.id
+
+                %p.mb-1.fw-bold
+                  Position Applied:
+
+                  %span.inline.fw-normal
+                    = @employee.role
+
+                %p.mb-1.fw-bold
+                  Employment Status:
+
+                  %span.inline.fw-normal
+                    = t("employment_event.status.#{@employee.employment_events.last.status}")
+
+        / --------- Resume --------- /
+
+        - if @employee.file.present?
+          = link_to "View Resume", @employee.file, class: "btn btn-dark w-100 mt-2 mb-2"
+
+        = link_to "Edit Profile", edit_employee_registration_path, class: "btn btn-dark w-100"
+
+      / --------- Profile Information --------- /
+      .col-lg-8
+        .card.my-2
+          .card-body
+            %h5.d-flex.justify-content-between.align-items-center.mb-3
+              Profile Information
+              -# = link_to "Edit Profile", edit_employee_registration_path, class: "btn btn-dark btn-sm m-1"
+
+            %hr.my-1
+
+            %dl.row.my-1
+              %dt.col-sm-4
+                First Name:
+
+              %dd.col-sm-8
+                = @employee.first_name
+
+            %hr.my-1
+
+            %dl.row.my-1
+              %dt.col-sm-4
+                Middle Name:
+
+              %dd.col-sm-8
+                = @employee.middle_name
+
+            %hr.my-1
+
+            %dl.row.my-1
+              %dt.col-sm-4
+                Last Name:
+
+              %dd.col-sm-8
+                = @employee.last_name
+
+            %hr.my-1
+
+            %dl.row.my-1
+              %dt.col-sm-4
+                Date of Birth:
+
+              %dd.col-sm-8
+                = @employee.date_of_birth.strftime("%B %e, %Y")
+
+            %hr.my-1
+
+            %dl.row.my-1
+              %dt.col-sm-4
+                Email Address:
+
+              %dd.col-sm-8
+                = @employee.email
+
+            %hr.my-1
+
+            %dl.row.my-1
+              %dt.col-sm-4
+                Contact Number:
+
+              %dd.col-sm-8
+                = @employee.contact_number
+
+
+            %hr.my-1
+
+            %dl.row.my-1
+              %dt.col-sm-4
+                Highest Education:
+
+              %dd.col-sm-8
+                = t("employee.education.#{@employee.education}")
+
+            %hr.my-1
+
+            %dl.row.my-1
+              %dt.col-sm-4
+                Years of Work Experience:
+
+              %dd.col-sm-8
+                = t("employee.work_experience.#{@employee.work_experience}")
+
+            %hr.my-1
+
+            %dl.row.my-1
+              %dt.col-sm-4
+                Character References:
+
+              %dd.col-sm-8
+                = @employee.character_references
