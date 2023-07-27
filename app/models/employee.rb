@@ -23,6 +23,8 @@ class Employee < ApplicationRecord
     "doctorate"
   ].freeze
 
+  after_create :send_welcome_employee_email
+
   validates_format_of :email, with: URI::MailTo::EMAIL_REGEXP
 
   validates :first_name,
@@ -38,5 +40,21 @@ class Employee < ApplicationRecord
 
   def full_name
     [first_name, middle_name, last_name].join(' ')
+  end
+
+  private
+
+  def send_welcome_employee_email
+    mailer_attrs = %w(
+      email
+      full_name
+      date_of_birth
+      contact_number
+      work_experience
+      education
+      role
+    )
+
+    EmployeeMailer.with(employee: attributes.slice(*mailer_attrs)).welcome_employee_email.deliver_later
   end
 end
