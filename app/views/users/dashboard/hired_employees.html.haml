@@ -57,13 +57,15 @@
                       %h5.modal-title
                         RESUME
 
+                      -# = button_tag(type: "button", "aria-label": "Close", "data-bs-dismiss": "modal")
                       %button.btn-close{"aria-label" => "Close", "data-bs-dismiss" => "modal", type: "button"}
 
                     .modal-body
                       %object{ data: url_for(employee.file), height: "600px", type: "application/pdf", width: "100%" }
 
                     .modal-footer
-                      %button.btn.btn-secondary{ "data-bs-dismiss" => "modal", :type => "button" } Close
+                      = button_tag(type: "button", class: "btn btn-dark", "data-bs-dismiss": "modal") do
+                        Close
 
             %td
               = button_tag(type: "button", class: "btn btn-dark btn-sm m-1", "data-toggle": "button") do
