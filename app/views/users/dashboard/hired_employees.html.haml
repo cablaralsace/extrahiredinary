@@ -1,18 +1,18 @@
 .container
   %h1.mt-5
-    Welcome to your Dashboard!
+    LIST OF HIRED EMPLOYEES
 
-  %p
-    See applicants and employees with their current statuses below.
+  -# %p
+    See all HIRED employees below.
 
   .dropdown.text-end
     %button#dropdownMenuButton.btn.btn-dark.dropdown-toggle{"data-bs-toggle" => "dropdown", type: "button"}
-      More Actions
+      Actions
     %ul.dropdown-menu.text-end{"aria-labelledby" => "dropdownMenuButton"}
       %li
-        = link_to "View All Applicants", authenticated_user_root_path, class: "text-decoration-none text-dark mx-3"
+        = link_to "View Hired Employees", hired_employees_path, class: "text-decoration-none text-dark mx-3", sort: "hired_employees"
       %li
-        = link_to "View Employees", hired_employees_path, class: "text-decoration-none text-dark mx-3", sort: "hired_employees"
+        = link_to "View All Applicants", authenticated_user_root_path, class: "text-decoration-none text-dark mx-3"
 
   .table-responsive.my-3
     %table.table.table-hover
@@ -24,9 +24,9 @@
 
           %th{ scope: "col" } Status
 
-          %th{ scope: "col" } Details
+          %th{ scope: "col" } Resume
 
-          %th{ scope: "col" } View Resume
+          %th{ scope: "col" } Details
 
       %tbody
         - @employees.each do |employee|
@@ -39,6 +39,7 @@
 
             %td
               = t("employment_event.status.#{employee.employment_events.last.status}")
+              -# = employee.created_at.strftime("%B %d %Y")
 
             %td
               / Button trigger modal
