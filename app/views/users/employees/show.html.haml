@@ -57,7 +57,8 @@
                 %span.text-secondary
                   = @employee.character_references
 
-        = link_to "Return to Dashboard", authenticated_user_root_path, class: "btn btn-primary w-100 mt-2"
+        = button_tag(type: "button", class: "btn btn-primary w-100 mt-2", "data-toggle": "button") do
+          - link_to "Return to Dashboard", authenticated_user_root_path, style: "color: white; text-decoration: none"
 
       / --------- Employment Column --------- /
       .col-lg-8
