@@ -23,10 +23,26 @@ class Employee < ApplicationRecord
     "doctorate"
   ].freeze
 
+  STATUSES = [
+    :received,
+    :in_review,
+    :interview_scheduled,
+    :offer_made,
+    :hired,
+    :rejected,
+    :cancelled,
+    :ended
+  ].freeze
+
   after_create :send_welcome_employee_email
 
   validates_format_of :email, with: URI::MailTo::EMAIL_REGEXP
 
+  STATUSES_ENUM = STATUSES.each_with_object({}){ |key, hash| hash[key] = key.to_s }
+
+  after_create :send_welcome_employee_email
+
+  validates_format_of :email, with: URI::MailTo::EMAIL_REGEXP
   validates :first_name,
             :middle_name,
             :last_name,
@@ -37,6 +53,8 @@ class Employee < ApplicationRecord
             :role,
             :file,
             presence: true
+
+  enum :status, STATUSES_ENUM, default: :received
 
   def full_name
     [first_name, middle_name, last_name].join(' ')

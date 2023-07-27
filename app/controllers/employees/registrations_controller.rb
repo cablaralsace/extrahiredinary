@@ -74,7 +74,8 @@ class Employees::RegistrationsController < Devise::RegistrationsController
         :education,
         :role,
         :character_references,
-        :file
+        :file,
+        :type
       ])
   end
 
