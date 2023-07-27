@@ -1,41 +1,89 @@
-%h3
+<h3>
   New Applicant Information
-%dl
-  %dt Email Address:
-  %dd
-    = @employee[:email]
-  %br/
+</h3>
 
-  %dt Full Name:
-  %dd
-    = @employee[:full_name]
-  %br/
+<dl>
+  <%# -----------  EMAIL  ----------- %>
+  <dt>
+    Email Address:
+  </dt>
 
-  %dt Date of Birth
-  %dd
-    = @employee[:date_of_birth]
-  %br/
+  <dd>
+    <%= @employee[:email] %>
+  </dd>
 
-  %dt Contact Number
-  %dd
-    = @employee[:contact_number]
-  %br/
+  <br/>
 
-  %dt Highest Educational Attainment:
-  %dd
-    = @employee[:education]
-  %br/
+  <%# -----------  FULL NAME  ----------- %>
+  <dt>
+    Full Name:
+  </dt>
 
-  %dt Work Experience
-  %dd
-    = @employee[:work_experience]
-  %br/
+  <dd>
+    <%= @employee[:full_name] %>
+  </dd>
 
-  %dt Position Applied:
-  %dd
-    = @employee[:role]
-  %br/
+  <br/>
 
-  %dt Character References:
-  %dd
-    = @employee[:character_references]
+  <%# -----------  DATE OF BIRTH  ----------- %>
+  <dt>Date of Birth</dt>
+
+  <dd>
+    <%= @employee[:date_of_birth] %>
+  </dd>
+
+  <br/>
+
+  <%# -----------  CONTACT NUMBER ----------- %>
+  <dt>
+    Contact Number
+  </dt>
+
+  <dd>
+    <%= @employee[:contact_number] %>
+  </dd>
+
+  <br/>
+
+  <%# -----------  EDUCATION  ----------- %>
+  <dt>
+    Highest Educational Attainment:
+  </dt>
+
+  <dd>
+    <%= @employee[:education] %>
+  </dd>
+
+  <br/>
+
+  <%# -----------  WORK EXPERIENCE  ----------- %>
+  <dt>
+    Work Experience
+  </dt>
+
+  <dd>
+    <%= @employee[:work_experience] %>
+  </dd>
+
+  <br/>
+
+  <%# -----------  POSITION APPLIED  ----------- %>
+  <dt>
+    Position Applied:
+  </dt>
+
+  <dd>
+    <%= @employee[:role] %>
+  </dd>
+
+  <br/>
+
+  <%# -----------  CHARACTER REFERENCES  ----------- %>
+  <dt>
+    Character References:
+  </dt>
+
+  <dd>
+    <%= @employee[:character_references] %>
+  </dd>
+</dl>

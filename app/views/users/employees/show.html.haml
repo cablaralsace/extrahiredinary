@@ -86,7 +86,6 @@
             %h5.d-flex.align-items-center.mb-3
               Update Status:
 
-
             - EmploymentEvent::STATUSES.excluding(EmploymentEvent::STATUSES[0..EmploymentEvent::STATUSES.find_index(@employee.employment_events.last.status.to_sym)]).each do |status|
               = link_to employee_update_status_path(@employee, status: status), class: "btn btn-warning btn-sm m-1", data: { 'turbo-method' => :put } do
                 = t("employment_event.status.#{status}")
