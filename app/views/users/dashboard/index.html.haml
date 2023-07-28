@@ -24,9 +24,9 @@
 
           %th{ scope: "col" } Status
 
-          %th{ scope: "col" } Resume
-
           %th{ scope: "col" } Details
+
+          %th{ scope: "col" } View Resume
 
       %tbody
         - @employees.each do |employee|
@@ -56,7 +56,6 @@
                       %h5.modal-title
                         RESUME
 
-                      -# = button_tag(type: "button", class: "btn-close", "data-bs-dismiss": "modal")
                       %button.btn-close{"aria-label" => "Close", "data-bs-dismiss" => "modal", type: "button"}
 
                     .modal-body

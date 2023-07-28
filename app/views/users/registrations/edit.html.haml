@@ -22,7 +22,6 @@
             url: registration_path(resource_name),
             method: :put,
             html: { class: "m-0" } do |form|
-
           .row.mt-3
             .field.col-md-6
               = form.input :first_name,
@@ -30,14 +29,12 @@
                   required: false,
                   label_html: { class: "form-label fw-bold" },
                   input_html: { class: "p-2 form-control" }
-
             .field.col-md-6
               = form.input :last_name,
                   label: "Last Name",
                   required: false,
                   label_html: { class: "form-label my-1" },
                   input_html: { class: "mt-1 form-control" }
-
           .row.mt-3
             .field
               = form.input :email,
@@ -46,11 +43,9 @@
                   label_html: { class: "form-label my-1" },
                   input_html: { class: "mt-1 form-control",
                                 type: "email", autocomplete: "email" }
-
           - if devise_mapping.confirmable? && resource.pending_reconfirmation?
             %div
               Currently waiting confirmation for: #{resource.unconfirmed_email}
-
           .row.mt-3
             .field.col-lg-6
               = form.input :password,
@@ -61,7 +56,6 @@
                                 type: "password", autocomplete: "new-password" },
                   hint: ( "Leave blank if you don't want to change it." ),
                   hint_html: { class: "form-label" }
-
             .field.col-lg-6
               = form.input :password_confirmation,
                   label: "Confirm Password",
@@ -69,7 +63,6 @@
                   label_html: { class: "form-label my-1" },
                   input_html: { class: "mt-1 form-control",
                                 type: "password", autocomplete: "new-password" }
-
           .row.mt-3
             .field
               = form.input :current_password,
@@ -80,10 +73,9 @@
                                 type: "password", autocomplete: "current-password" },
                   hint: ( "We need your current password to confirm your changes." ),
                   hint_html: { class: "form-label" }
-
-
           = form.button :submit, "Save Changes",
             class: "btn btn-form btn-warning w-100 mt-2"
+
 
           = button_tag(type: "button", class: "btn btn-primary w-100 mt-2 mb-3", "data-toggle": "button") do
             - link_to "Back to Profile", profile_path, style: "color: white; text-decoration: none"
