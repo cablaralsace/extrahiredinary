@@ -36,9 +36,11 @@
         / --------- Resume --------- /
 
         - if @employee.file.present?
-          = link_to "View Resume", @employee.file, class: "btn btn-dark w-100 mt-2 mb-2"
+          = button_tag(type: "button", class: "btn btn-dark w-100 mt-2 mb-2", "data-toggle": "button") do
+            - link_to "View Resume", @employee.file, style: "color: white; text-decoration: none"
 
-        = link_to "Edit Profile", edit_employee_registration_path, class: "btn btn-dark w-100"
+        = button_tag(type: "button", class: "btn btn-dark w-100", "data-toggle": "button") do
+          - link_to "Edit Profile", edit_employee_registration_path, style: "color: white; text-decoration: none"
 
       / --------- Profile Information --------- /
       .col-lg-8
@@ -46,7 +48,6 @@
           .card-body
             %h5.d-flex.justify-content-between.align-items-center.mb-3
               Profile Information
-              -# = link_to "Edit Profile", edit_employee_registration_path, class: "btn btn-dark btn-sm m-1"
 
             %hr.my-1
 
