@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
+
   match "/404", to: "errors#not_found", via: :all
   match "/500", to: "errors#internal_server_error", via: :all
+
+  devise_for :admins, controllers: {
+    sessions: "admins/sessions",
+    registrations: "admins/registrations"
+  }
 
   devise_for :users, controllers: {
     sessions: "users/sessions",
@@ -11,6 +17,12 @@ Rails.application.routes.draw do
     sessions: "employees/sessions",
     registrations: "employees/registrations"
   }
+
+  authenticated :admin do
+    resources :admins
+
+    root to: "admins/dashboard#index", as: :authenticated_admin_root
+  end
 
   authenticated :user do
     resources :users
