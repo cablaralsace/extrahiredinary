@@ -1,0 +1,306 @@
+.container.rounded.bg-white
+  .row
+    .col.p-4
+      .py-5
+        .d-flex.justify-content-between.align-items-center
+          %h4
+            Hiring Form
+        %p
+          Requested by:
+          %span.inline
+            = @user.email
+
+        %hr
+
+        -# ----------------------- Developer Level
+        .row.mt-3.m-2
+          %p.fw-bold
+            Software Developer Level
+
+          .col-md-2
+            .form-check
+              %input#flexCheckDefault.form-check-input{type: "checkbox", value: ""}/
+              %label.form-check-label{for: "flexCheckDefault"}
+                Junior Level
+
+          .col-md-2
+            .form-check
+              %input#flexCheckDefault.form-check-input{type: "checkbox", value: ""}/
+              %label.form-check-label{for: "flexCheckDefault"}
+                Mid Level
+
+          .col-md-2
+            .form-check
+              %input#flexCheckDefault.form-check-input{type: "checkbox", value: ""}/
+              %label.form-check-label{for: "flexCheckDefault"}
+                Senior Level
+
+        -# ----------------------- Tech Stacks
+        .row.mt-3.m-2
+          %p.fw-bold
+            Tech Stacks
+
+          -#Tech Stack - Operating Systems
+          .col-md-2.m-1
+            %p.fw-bold
+              Operating Systems
+
+            .form-check
+              %input#flexCheckDefault.form-check-input{type: "checkbox", value: ""}/
+              %label.form-check-label{for: "flexCheckDefault"}
+                MacOS
+
+            .form-check
+              %input#flexCheckDefault.form-check-input{type: "checkbox", value: ""}/
+              %label.form-check-label{for: "flexCheckDefault"}
+                Windows
+
+            .form-check
+              %input#flexCheckDefault.form-check-input{type: "checkbox", value: ""}/
+              %label.form-check-label{for: "flexCheckDefault"}
+                Linux
+
+            .form-check
+              %input#flexCheckDefault.form-check-input{type: "checkbox", value: ""}/
+              %label.form-check-label{for: "flexCheckDefault"}
+                Ubuntu
+
+            .form-check
+              %input#flexCheckDefault.form-check-input{type: "checkbox", value: ""}/
+              %label.form-check-label{for: "flexCheckDefault"}
+                iOS
+
+            .form-check
+              %input#flexCheckDefault.form-check-input{type: "checkbox", value: ""}/
+              %label.form-check-label{for: "flexCheckDefault"}
+                Android
+
+          -#Tech Stacks - Programming Languages
+          .col-md-5.m-1
+            %p.fw-bold
+              Programming Languages and Frameworks
+
+            .row
+              .col
+                .form-check
+                  %input#flexCheckDefault.form-check-input{type: "checkbox", value: ""}/
+                  %label.form-check-label{for: "flexCheckDefault"}
+                    HTML
+
+                .form-check
+                  %input#flexCheckDefault.form-check-input{type: "checkbox", value: ""}/
+                  %label.form-check-label{for: "flexCheckDefault"}
+                    CSS
+
+                .form-check
+                  %input#flexCheckDefault.form-check-input{type: "checkbox", value: ""}/
+                  %label.form-check-label{for: "flexCheckDefault"}
+                    Bootstrap
+
+                .form-check
+                  %input#flexCheckDefault.form-check-input{type: "checkbox", value: ""}/
+                  %label.form-check-label{for: "flexCheckDefault"}
+                    TailwindCSS
+
+                .form-check
+                  %input#flexCheckDefault.form-check-input{type: "checkbox", value: ""}/
+                  %label.form-check-label{for: "flexCheckDefault"}
+                    PHP
+
+                .form-check
+                  %input#flexCheckDefault.form-check-input{type: "checkbox", value: ""}/
+                  %label.form-check-label{for: "flexCheckDefault"}
+                    Python
+
+                .form-check
+                  %input#flexCheckDefault.form-check-input{type: "checkbox", value: ""}/
+                  %label.form-check-label{for: "flexCheckDefault"}
+                    C# / C++
+
+                .form-check
+                  %input#flexCheckDefault.form-check-input{type: "checkbox", value: ""}/
+                  %label.form-check-label{for: "flexCheckDefault"}
+                    COBOL
+
+
+              .col
+                .form-check
+                  %input#flexCheckDefault.form-check-input{type: "checkbox", value: ""}/
+                  %label.form-check-label{for: "flexCheckDefault"}
+                    Java
+
+                .form-check
+                  %input#flexCheckDefault.form-check-input{type: "checkbox", value: ""}/
+                  %label.form-check-label{for: "flexCheckDefault"}
+                    jQuery
+
+                .form-check
+                  %input#flexCheckDefault.form-check-input{type: "checkbox", value: ""}/
+                  %label.form-check-label{for: "flexCheckDefault"}
+                    ReactJS
+
+                .form-check
+                  %input#flexCheckDefault.form-check-input{type: "checkbox", value: ""}/
+                  %label.form-check-label{for: "flexCheckDefault"}
+                    AngularJS
+
+                .form-check
+                  %input#flexCheckDefault.form-check-input{type: "checkbox", value: ""}/
+                  %label.form-check-label{for: "flexCheckDefault"}
+                    NodeJS
+
+                .form-check
+                  %input#flexCheckDefault.form-check-input{type: "checkbox", value: ""}/
+                  %label.form-check-label{for: "flexCheckDefault"}
+                    EmberJS
+
+                .form-check
+                  %input#flexCheckDefault.form-check-input{type: "checkbox", value: ""}/
+                  %label.form-check-label{for: "flexCheckDefault"}
+                    VueJS
+
+                .form-check
+                  %input#flexCheckDefault.form-check-input{type: "checkbox", value: ""}/
+                  %label.form-check-label{for: "flexCheckDefault"}
+                    SolidJS
+
+              .col
+                .form-check
+                  %input#flexCheckDefault.form-check-input{type: "checkbox", value: ""}/
+                  %label.form-check-label{for: "flexCheckDefault"}
+                    Ruby on Rails
+
+                .form-check
+                  %input#flexCheckDefault.form-check-input{type: "checkbox", value: ""}/
+                  %label.form-check-label{for: "flexCheckDefault"}
+                    Elixir
+
+                .form-check
+                  %input#flexCheckDefault.form-check-input{type: "checkbox", value: ""}/
+                  %label.form-check-label{for: "flexCheckDefault"}
+                    TypeScript
+
+                .form-check
+                  %input#flexCheckDefault.form-check-input{type: "checkbox", value: ""}/
+                  %label.form-check-label{for: "flexCheckDefault"}
+                    Perl
+
+                .form-check
+                  %input#flexCheckDefault.form-check-input{type: "checkbox", value: ""}/
+                  %label.form-check-label{for: "flexCheckDefault"}
+                    SQL
+
+                .form-check
+                  %input#flexCheckDefault.form-check-input{type: "checkbox", value: ""}/
+                  %label.form-check-label{for: "flexCheckDefault"}
+                  Microsoft ASP
+
+                .form-check
+                  %input#flexCheckDefault.form-check-input{type: "checkbox", value: ""}/
+                  %label.form-check-label{for: "flexCheckDefault"}
+                    Swift
+
+                .form-check
+                  %input#flexCheckDefault.form-check-input{type: "checkbox", value: ""}/
+                  %label.form-check-label{for: "flexCheckDefault"}
+                    Kotlin
+
+          -#Tech Stack - Web servers
+          .col-md-2.m-1
+            %p.fw-bold
+              Web servers
+
+            .row
+              .col
+                .form-check
+                  %input#flexCheckDefault.form-check-input{type: "checkbox", value: ""}/
+                  %label.form-check-label{for: "flexCheckDefault"}
+                    Apache HTTP Server
+
+                .form-check
+                  %input#flexCheckDefault.form-check-input{type: "checkbox", value: ""}/
+                  %label.form-check-label{for: "flexCheckDefault"}
+                    Nginx
+
+                .form-check
+                  %input#flexCheckDefault.form-check-input{type: "checkbox", value: ""}/
+                  %label.form-check-label{for: "flexCheckDefault"}
+                    Microsoft IIS
+
+                .form-check
+                  %input#flexCheckDefault.form-check-input{type: "checkbox", value: ""}/
+                  %label.form-check-label{for: "flexCheckDefault"}
+                    Apache Tomcat
+
+                .form-check
+                  %input#flexCheckDefault.form-check-input{type: "checkbox", value: ""}/
+                  %label.form-check-label{for: "flexCheckDefault"}
+                    AOLserver
+
+                .form-check
+                  %input#flexCheckDefault.form-check-input{type: "checkbox", value: ""}/
+                  %label.form-check-label{for: "flexCheckDefault"}
+                    Oracle
+
+          -#Tech Stack - Database
+          .col-md-2.m-1
+            %p.fw-bold
+              DBMS
+
+            .row
+              .col
+                .form-check
+                  %input#flexCheckDefault.form-check-input{type: "checkbox", value: ""}/
+                  %label.form-check-label{for: "flexCheckDefault"}
+                    MySQL
+
+                .form-check
+                  %input#flexCheckDefault.form-check-input{type: "checkbox", value: ""}/
+                  %label.form-check-label{for: "flexCheckDefault"}
+                    PostgreSQL
+
+                .form-check
+                  %input#flexCheckDefault.form-check-input{type: "checkbox", value: ""}/
+                  %label.form-check-label{for: "flexCheckDefault"}
+                    SQLite
+
+                .form-check
+                  %input#flexCheckDefault.form-check-input{type: "checkbox", value: ""}/
+                  %label.form-check-label{for: "flexCheckDefault"}
+                    Microsoft SQL Server
+
+                .form-check
+                  %input#flexCheckDefault.form-check-input{type: "checkbox", value: ""}/
+                  %label.form-check-label{for: "flexCheckDefault"}
+                    IBM DB2
+
+                .form-check
+                  %input#flexCheckDefault.form-check-input{type: "checkbox", value: ""}/
+                  %label.form-check-label{for: "flexCheckDefault"}
+                    Oracle Database
+
+                .form-check
+                  %input#flexCheckDefault.form-check-input{type: "checkbox", value: ""}/
+                  %label.form-check-label{for: "flexCheckDefault"}
+                    MongoDB
+
+                .form-check
+                  %input#flexCheckDefault.form-check-input{type: "checkbox", value: ""}/
+                  %label.form-check-label{for: "flexCheckDefault"}
+                    MariaDB
+
+                .form-check
+                  %input#flexCheckDefault.form-check-input{type: "checkbox", value: ""}/
+                  %label.form-check-label{for: "flexCheckDefault"}
+                    Redis
+
+                .form-check
+                  %input#flexCheckDefault.form-check-input{type: "checkbox", value: ""}/
+                  %label.form-check-label{for: "flexCheckDefault"}
+                    phpMyAdmin
+
+        %hr
+
+        .d-flex.mt-5.align-items-left
+          = button_tag(type: "button", class: "btn btn-primary", "data-toggle": "button") do
+            - link_to "Generate Hiring Form", hiring_form_path, style: "color: white; text-decoration: none"
