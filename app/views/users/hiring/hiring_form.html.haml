@@ -4,37 +4,96 @@
       .py-5
         .d-flex.justify-content-between.align-items-center
           %h4
-            Hiring Form
+            Software Engineer Hiring Form
         %p
           Requested by:
           %span.inline
             = @user.email
 
         %hr
-
         -# ----------------------- Developer Level
         .row.mt-3.m-2
-          %p.fw-bold
-            Software Developer Level
+          .col-md-2.m-1
+            %p.fw-bold
+              Employment Type
 
-          .col-md-2
-            .form-check
-              %input#flexCheckDefault.form-check-input{type: "checkbox", value: ""}/
-              %label.form-check-label{for: "flexCheckDefault"}
-                Junior Level
+            .col.m-1
+              .form-check
+                %input#flexCheckDefault.form-check-input{type: "checkbox", value: ""}/
+                %label.form-check-label{for: "flexCheckDefault"}
+                  Project-based
 
-          .col-md-2
-            .form-check
-              %input#flexCheckDefault.form-check-input{type: "checkbox", value: ""}/
-              %label.form-check-label{for: "flexCheckDefault"}
-                Mid Level
+            .col.m-1
+              .form-check
+                %input#flexCheckDefault.form-check-input{type: "checkbox", value: ""}/
+                %label.form-check-label{for: "flexCheckDefault"}
+                  Permanent
 
-          .col-md-2
-            .form-check
-              %input#flexCheckDefault.form-check-input{type: "checkbox", value: ""}/
-              %label.form-check-label{for: "flexCheckDefault"}
-                Senior Level
+          .col-md-2.m-1
+            %p.fw-bold
+              Work Arrangement
 
+            .col.m-1
+              .form-check
+                %input#flexCheckDefault.form-check-input{type: "checkbox", value: ""}/
+                %label.form-check-label{for: "flexCheckDefault"}
+                  Work from Home
+
+            .col.m-1
+              .form-check
+                %input#flexCheckDefault.form-check-input{type: "checkbox", value: ""}/
+                %label.form-check-label{for: "flexCheckDefault"}
+                  On-site
+
+            .col.m-1
+              .form-check
+                %input#flexCheckDefault.form-check-input{type: "checkbox", value: ""}/
+                %label.form-check-label{for: "flexCheckDefault"}
+                  Hybrid
+
+          .col-md-2.m-1
+            %p.fw-bold
+              Developer Skill Level
+
+            .col
+              .form-check
+                %input#flexCheckDefault.form-check-input{type: "checkbox", value: ""}/
+                %label.form-check-label{for: "flexCheckDefault"}
+                  Junior
+
+            .col
+              .form-check
+                %input#flexCheckDefault.form-check-input{type: "checkbox", value: ""}/
+                %label.form-check-label{for: "flexCheckDefault"}
+                  Mid
+
+            .col
+              .form-check
+                %input#flexCheckDefault.form-check-input{type: "checkbox", value: ""}/
+                %label.form-check-label{for: "flexCheckDefault"}
+                  Senior
+
+          .col-md-2.m-1
+            %p.fw-bold
+              Salary Range ($)
+            .col
+              .form-check
+                %input#flexCheckDefault.form-check-input{type: "checkbox", value: ""}/
+                %label.form-check-label{for: "flexCheckDefault"}
+                  $500 - $1,000
+
+            .col
+              .form-check
+                %input#flexCheckDefault.form-check-input{type: "checkbox", value: ""}/
+                %label.form-check-label{for: "flexCheckDefault"}
+                  $1,001 - $2,000
+
+            .col
+              .form-check
+                %input#flexCheckDefault.form-check-input{type: "checkbox", value: ""}/
+                %label.form-check-label{for: "flexCheckDefault"}
+                  $2,0001 and up
+        %hr
         -# ----------------------- Tech Stacks
         .row.mt-3.m-2
           %p.fw-bold
